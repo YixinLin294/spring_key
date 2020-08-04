@@ -1,11 +1,14 @@
 package com.shengsiyuan.spring_key;
 
-import com.shengsiyuan.spring_key.beans.Students;
+import com.shengsiyuan.spring_key.beans.Student;
+import com.shengsiyuan.spring_key.service.AopService;
 import org.springframework.beans.factory.support.BeanDefinitionReader;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+
+import java.lang.reflect.Proxy;
 
 public class SpringDemo {
 
@@ -18,10 +21,18 @@ public class SpringDemo {
 
         beanDefinitionReader.loadBeanDefinitions(resource);
 
-        Students student = ((Students) defaultListableBeanFactory.getBean("student"));
-
+//        Student student = ((Student) defaultListableBeanFactory.getBean("student"));
+/*
         System.out.println(student.getName());
 
-        System.out.println(student.getAge());
+        System.out.println(student.getAge());*/
+
+        AopService aopService = (AopService) defaultListableBeanFactory.getBean("aopService");
+
+        aopService.getStudent();
+
+        AopService factoryBean = (AopService) defaultListableBeanFactory.getBean("factoryBean");
+
+        factoryBean.getStudent();
     }
 }

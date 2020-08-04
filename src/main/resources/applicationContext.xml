@@ -4,8 +4,22 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="student" class="com.shengsiyuan.spring_key.beans.Students">
+<!--    <bean id="student" class="com.shengsiyuan.spring_key.beans.Student">
         <property name="name" value="zhangsan"></property>
         <property name="age" value="4"></property>
+    </bean>-->
+
+    <bean id="aopService" class="com.shengsiyuan.spring_key.service.impl.AopServiceImpl">
+<!--        <property name="student" ref="student"></property>-->
     </bean>
+
+    <bean id="myAspect" class="com.shengsiyuan.spring_key.proxy.jdk.MyAspect"/>
+
+    <bean id="factoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="aopService"></property>
+        <property name="interceptorNames" value="myAspect"></property>
+        <property name="proxyTargetClass" value="true"></property>
+    </bean>
+
+
 </beans>
