@@ -8,7 +8,6 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import java.lang.reflect.Proxy;
 
 public class SpringDemo {
 
@@ -31,8 +30,34 @@ public class SpringDemo {
 
         aopService.getStudent();
 
+//        AopService factoryBean = (AopService) defaultListableBeanFactory.getBean("myAop");
+
+//        factoryBean.getStudent();
+
         AopService factoryBean = (AopService) defaultListableBeanFactory.getBean("factoryBean");
 
-        factoryBean.getStudent();
+//        factoryBean.getStudent();
+
+        Class<?> superclass = factoryBean.getClass().getSuperclass();
+        System.out.println(superclass);
+
+        Class<?>[] interfaces = factoryBean.getClass().getInterfaces();
+
+        for (Class<?> anInterface : interfaces) {
+            System.out.println(anInterface);
+        }
+
+        System.out.println("======================================");
+
+        AopService myAop = (AopService) defaultListableBeanFactory.getBean("myAop");
+
+        Class<?> superclass1 = myAop.getClass().getSuperclass();
+        System.out.println(superclass1);
+
+        Class<?>[] interfaces1 = myAop.getClass().getInterfaces();
+
+        for (Class<?> aClass : interfaces1) {
+            System.out.println(aClass);
+        }
     }
 }

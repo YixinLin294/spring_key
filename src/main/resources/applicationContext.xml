@@ -21,5 +21,21 @@
         <property name="proxyTargetClass" value="true"></property>
     </bean>
 
+    <bean id="myAop" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>com.shengsiyuan.spring_key.service.AopService</value>
+        </property>
+
+        <property name="interceptorNames">
+            <list>
+                <value>myAspect</value>
+            </list>
+        </property>
+
+        <property name="target">
+            <ref bean="aopService"></ref>
+        </property>
+    </bean>
+
 
 </beans>
