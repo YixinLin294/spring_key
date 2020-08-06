@@ -20,19 +20,15 @@ public class SpringDemo {
 
         beanDefinitionReader.loadBeanDefinitions(resource);
 
-//        Student student = ((Student) defaultListableBeanFactory.getBean("student"));
-/*
+        Student student = ((Student) defaultListableBeanFactory.getBean("student"));
+
         System.out.println(student.getName());
 
-        System.out.println(student.getAge());*/
+        System.out.println(student.getAge());
 
         AopService aopService = (AopService) defaultListableBeanFactory.getBean("aopService");
 
         aopService.getStudent();
-
-//        AopService factoryBean = (AopService) defaultListableBeanFactory.getBean("myAop");
-
-//        factoryBean.getStudent();
 
         AopService factoryBean = (AopService) defaultListableBeanFactory.getBean("factoryBean");
 
@@ -50,6 +46,8 @@ public class SpringDemo {
         System.out.println("======================================");
 
         AopService myAop = (AopService) defaultListableBeanFactory.getBean("myAop");
+
+        myAop.getStudent();
 
         Class<?> superclass1 = myAop.getClass().getSuperclass();
         System.out.println(superclass1);

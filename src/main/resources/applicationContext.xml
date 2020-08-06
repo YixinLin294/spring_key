@@ -4,10 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<!--    <bean id="student" class="com.shengsiyuan.spring_key.beans.Student">
+    <bean id="student" class="com.shengsiyuan.spring_key.beans.Student">
         <property name="name" value="zhangsan"></property>
         <property name="age" value="4"></property>
-    </bean>-->
+    </bean>
 
     <bean id="aopService" class="com.shengsiyuan.spring_key.service.impl.AopServiceImpl">
 <!--        <property name="student" ref="student"></property>-->
