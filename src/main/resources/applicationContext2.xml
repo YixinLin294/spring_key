@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
-    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
-        <property name="converters">
-            <bean class="com.shengsiyuan.spring_key.converter.MyConversionService">
-            </bean>
-        </property>
-    </bean>
+    <bean id="conversionService" class="com.shengsiyuan.spring_key.converter.MyConversionService"></bean>
+
 
     <bean id="person" class="com.shengsiyuan.spring_key.beans.Person">
         <property name="name" value="zhangsan"/>
@@ -17,8 +13,11 @@
         <property name="birth" value="2015-01-01"/>
     </bean>
 
-<!--    <bean id="conversionService" class="com.shengsiyuan.spring_key.converter.MyConversionService"/>-->
 
-
+<!--    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <bean class="com.shengsiyuan.spring_key.converter.MyConverter"></bean>
+        </property>
+    </bean>-->
 
 </beans>
