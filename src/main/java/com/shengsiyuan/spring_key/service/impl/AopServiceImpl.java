@@ -16,10 +16,6 @@ public class AopServiceImpl implements AopService {
 
     @Override
     public Student getStudent() {
-        /*Student student = new Student();
-
-        student.setAge(10);
-        student.setName("zhangsan");*/
         System.out.println(student.getAge());
         System.out.println(student.getName());
         return student;
